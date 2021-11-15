@@ -1,0 +1,126 @@
+/* Reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* 
+1. Từ ngoài vào trong
+2. Từ trên xuống dưới
+3. Tổng quan đến chi tiết
+ */
+ /* 
+ 1. Vị trí
+ 2. Kích thước
+ 3. Màu sắc
+ 4. Kiểu dáng
+ */
+body {
+    background-image: url('../img/bg.jpg')
+}
+.nav{
+    position: relative;    
+    background-color: orange;
+    height: 50px; 
+    display: flex;   
+}
+.nav .nav-pc ul li{
+    display: inline-block;
+    line-height: 50px ;
+    text-align: center;
+    padding: 0 24px;
+
+}
+.nav-pc ul li a {
+    color: white;
+    text-decoration: none;
+}
+.nav-pc ul li:hover {
+    background-color: rgb(241, 168, 71);
+}
+/* Mobile */
+.nav .nav-btn {
+    width: 28px;
+    height: 28px;
+    margin-left: 10px;
+    margin-top: 8px;
+    color: white;
+    display: none;    
+}
+.nav-overlay {
+    position: fixed;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left:0;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+    animation: fadeIn linear 0.5s;
+}
+.nav-mobile {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: #fff;  
+    opacity: 0;
+    transform: translateX(-100%);    
+    transition: all linear 0.2s; 
+}
+.nav-mobile-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 28px;
+    height: 28px;
+    color: #666;
+    
+}
+.nav-mobile ul {
+    margin-top: 30px;
+}
+.nav-mobile ul li {
+    display: block;
+    padding: 10px 24px; 
+    font-size: 1.4rem;   
+    
+}
+.nav-mobile ul li a {
+    text-decoration: none;
+    color:#333;
+}
+.nav-input{
+    display: none;
+}
+/* Nếu được check còn không check về trạng thái cũ */
+.nav-input:checked ~ .nav-overlay {
+    display: block;
+}
+.nav-input:checked ~ .nav-mobile{
+    transform: translateX(0%);
+    opacity: 1;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@media(max-width:900px) {
+    .nav .nav-btn {
+        display: block;
+    }
+    .nav .nav-pc {
+        display: none;
+    }
+}
+
+
+
